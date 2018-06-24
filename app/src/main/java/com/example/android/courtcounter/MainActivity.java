@@ -1,20 +1,28 @@
 package com.example.android.courtcounter;
-import android.content.res.Configuration;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    int scoreForTeamA, scoreForTeamB;
-    private TextView scoreViewA;
-    private TextView scoreViewB;
+    int scoreForTeamA;
+    int scoreForTeamB;
+    @BindView(R.id.team_a_score)
+    TextView scoreViewA;
+    @BindView(R.id.team_b_score)
+    TextView scoreViewB;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //ButterKnife View Binding
+        ButterKnife.bind(this);
     }
     public void increaseBy3ForA(View view) {
         scoreForTeamA += 3;
@@ -54,12 +62,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayForTeamA(int score) {
-        scoreViewA= (TextView) findViewById(R.id.team_a_score);
         scoreViewA.setText(String.valueOf(score));
     }
 
     public void displayForTeamB(int score) {
-        scoreViewB = (TextView) findViewById(R.id.team_b_score);
         scoreViewB.setText(String.valueOf(score));
     }
 }
