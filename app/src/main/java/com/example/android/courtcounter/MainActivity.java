@@ -61,10 +61,12 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamB(scoreForTeamB);
     }
 
+    //Updates Score of Team A
     public void displayForTeamA(int score) {
         scoreViewA.setText(String.valueOf(score));
     }
 
+    //Updates Score of Team B
     public void displayForTeamB(int score) {
         scoreViewB.setText(String.valueOf(score));
     }
